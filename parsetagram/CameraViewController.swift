@@ -8,6 +8,9 @@
 
 import UIKit
 import AlamofireImage
+import Parse
+
+
 //image picker lets you use camera
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -20,8 +23,31 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 
         // Do any additional setup after loading the view.
     }
-    
+    //saves to parse
     @IBAction func onSubmitButton(_ sender: Any) {
+        let post = PFObject(className: "Posts")
+        
+        post["caption"] = commentField.text!
+        post["author"] = PFUser.current()!
+        
+        let imageData = imageView.image!.pngData()
+        let file = PFFileObject(data: imageData!)
+        
+        post["image"] = file
+        
+        //debugging
+        post.saveInBackground { (success, error) in
+            if success{
+                self.dismiss(animated: true, completion: nil)
+                print("saved")
+            }else{
+                print("error")
+            }
+        }
+        
+        
+        
+        
     }
     // function below here, upon tapping image will open photo album
     @IBAction func onCameraButton(_ sender: Any) {
