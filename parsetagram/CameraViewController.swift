@@ -23,14 +23,14 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 
         // Do any additional setup after loading the view.
     }
-    //saves to parse
+    //saves to parse, make sure to save as png
     @IBAction func onSubmitButton(_ sender: Any) {
         let post = PFObject(className: "Posts")
         
         post["caption"] = commentField.text!
         post["author"] = PFUser.current()!
         
-        //let imageData = imageView.image!.pngData()
+       
         let imageData = imageView.image!.pngData()
         let file = PFFileObject(name: "image.png", data: imageData!)
         //let file = PFFileObject(data: imageData!)
