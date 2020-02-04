@@ -5,7 +5,7 @@
 //  Created by Alec Tenefrancia on 1/30/20.
 //  Copyright © 2020 Alec Tenefrancia. All rights reserved.
 // functionality here is that it shows the feed, gets the API from parse and puts it onto the corresponding parts, such as username, caption & photo label
-//user can also pull to refresh 
+//user can also pull to refresh
 
 import UIKit
 import Parse
@@ -15,12 +15,16 @@ import Alamofire
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var posts = [PFObject]()
+    var numberofPost: Int!
     var refreshControl: UIRefreshControl! //to refresh
+    
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //shows 5 posts before need to reload
+        numberofPost = 5
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
@@ -29,7 +33,31 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
-    }
+    }// end viewDidLoad function, loading function
+    
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
+        loadPost()
+    }// end viewDidAppear function, makes more post appear
+    
+    @objc func loadPost() {
+           let query = PFQuery(className: "Posts")
+           query.includeKey("author")
+           query.limit = numberofPost
+           
+           query.findObjectsInBackground { (posts, error) in
+               if posts != nil {
+                   self.posts = posts!
+                   self.tableView.reloadData()
+               }
+           }
+       } // end loadPost function, loads more of the posts
+    
+    func loadMorePost() {
+        numberofPost += 5
+        loadPost()
+    } // end loadMorePost function, loads more post
+    
     
     // Call the delay method in your onRefresh() method
     @objc func onRefresh() {
@@ -46,7 +74,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     } // end run function
     
-    override func viewDidAppear(_ animated: Bool) {
+  /*  override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let query = PFQuery(className:"Posts")
@@ -61,11 +89,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         
-    }
+    }*/
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row + 1 == posts.count {
+            loadMorePost()
+        }
+        
+    } // end tableView(willDisplay) function
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
-    }
+    }// end tableView(numberOfRowsInSection) function
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
@@ -88,16 +123,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         return cell
-    }
+    }// end tableView(cellForRowAt) function
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
