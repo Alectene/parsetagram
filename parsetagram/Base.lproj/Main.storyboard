@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="parsetagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="parsetagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,6 +146,11 @@
                         <viewLayoutGuide key="safeArea" id="vau-hF-Qmd"/>
                     </view>
                     <navigationItem key="navigationItem" id="0Ux-9A-unJ">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="HPN-tu-psL">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="SB7-Gh-5BH" id="zrb-vX-O9n"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="camera" catalog="system" id="ArU-NK-ten">
                             <connections>
                                 <segue destination="jdy-2Z-G8Q" kind="presentation" id="pRl-ye-CzD"/>
