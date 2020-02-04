@@ -145,16 +145,13 @@
 		BB92E3D623E3862A00F962FC /* parsetagram */ = {
 			isa = PBXGroup;
 			children = (
-				BB92E3D723E3862A00F962FC /* AppDelegate.swift */,
+				BBBE061523E9500C00A8F6BD /* ViewController */,
+				BBBE061723E9514C00A8F6BD /* Cells */,
+				BBBE061823E9516C00A8F6BD /* Storyboards */,
 				BB92E3D923E3862A00F962FC /* SceneDelegate.swift */,
-				BB92E3DD23E3862A00F962FC /* Main.storyboard */,
-				BB92E40B23E63AD300F962FC /* CameraViewController.swift */,
-				BB92E40D23E64EB200F962FC /* PostCell.swift */,
+				BB92E3D723E3862A00F962FC /* AppDelegate.swift */,
 				BB92E3E023E3862C00F962FC /* Assets.xcassets */,
-				BB92E3E223E3862C00F962FC /* LaunchScreen.storyboard */,
 				BB92E3E523E3862C00F962FC /* Info.plist */,
-				BB92E40723E3924100F962FC /* LoginViewController.swift */,
-				BB92E40923E3926500F962FC /* FeedViewController.swift */,
 			);
 			path = parsetagram;
 			sourceTree = "<group>";
@@ -175,6 +172,33 @@
 				BB92E3FB23E3862C00F962FC /* Info.plist */,
 			);
 			path = parsetagramUITests;
+			sourceTree = "<group>";
+		};
+		BBBE061523E9500C00A8F6BD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BB92E40723E3924100F962FC /* LoginViewController.swift */,
+				BB92E40923E3926500F962FC /* FeedViewController.swift */,
+				BB92E40B23E63AD300F962FC /* CameraViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BBBE061723E9514C00A8F6BD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BB92E40D23E64EB200F962FC /* PostCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BBBE061823E9516C00A8F6BD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BB92E3DD23E3862A00F962FC /* Main.storyboard */,
+				BB92E3E223E3862C00F962FC /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
