@@ -178,8 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				BB92E40723E3924100F962FC /* LoginViewController.swift */,
-				BB92E40923E3926500F962FC /* FeedViewController.swift */,
 				BB92E40B23E63AD300F962FC /* CameraViewController.swift */,
+				BB92E40923E3926500F962FC /* FeedViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -195,8 +195,8 @@
 		BBBE061823E9516C00A8F6BD /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				BB92E3DD23E3862A00F962FC /* Main.storyboard */,
 				BB92E3E223E3862C00F962FC /* LaunchScreen.storyboard */,
+				BB92E3DD23E3862A00F962FC /* Main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";

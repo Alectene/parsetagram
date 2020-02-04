@@ -95,7 +95,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="409" id="uRN-UC-Gyz" customClass="PostCell" customModule="parsetagram" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="409" id="uRN-UC-Gyz" customClass="PostCell" customModule="parsetagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="409"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRN-UC-Gyz" id="bwa-d4-uCl">
@@ -148,7 +148,7 @@
                     <navigationItem key="navigationItem" id="0Ux-9A-unJ">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="HPN-tu-psL">
                             <connections>
-                                <action selector="onLogoutButton:" destination="SB7-Gh-5BH" id="zrb-vX-O9n"/>
+                                <action selector="onLogoutButton:" destination="SB7-Gh-5BH" id="XCj-4n-zP6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="camera" catalog="system" id="ArU-NK-ten">

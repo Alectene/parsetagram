@@ -30,7 +30,9 @@ var window: UIWindow?
             let main = UIStoryboard(name: "Main", bundle: nil)
             let feedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController")
 
+             window?.makeKeyAndVisible()
             window?.rootViewController = feedNavigationController
+           
         }
 
         
