@@ -42,7 +42,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     */
     @objc func loadPost() {
            let query = PFQuery(className: "Posts")
-           query.includeKey("author")
+           query.includeKeys(["author", "comments", "comments.author"])
            query.limit = numberofPost
            
            query.findObjectsInBackground { (posts, error) in
@@ -78,7 +78,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidAppear(animated)
         
         let query = PFQuery(className:"Posts")
-        query.includeKey("author")
+        query.includeKeys(["author", "comments", "comments.author"])
         query.limit = 20
         
         query.findObjectsInBackground { (posts, error) in
@@ -135,11 +135,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
         }else{
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
+            let comment = comments[indexPath.row - 1]
+            cell.commentLabel.text = comment["text"] as? String
+            let user = comment["author"] as! PFUser
+             cell.nameLabel.text = user.username
+            
+            
             return cell
-            
-            
         }
     }// end tableView(cellForRowAt) function
 
