@@ -11,6 +11,7 @@ import UIKit
 import Parse
 import AlamofireImage
 import Alamofire
+import MessageInputBar
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,6 +21,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBOutlet weak var tableView: UITableView!
+    let commentBar = MessageInputBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
     }// end viewDidLoad function, loading function
+    
+    override var inputAccessoryView: UIView?{
+        return commentBar
+    }
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
     
    /* override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
@@ -87,7 +97,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData()
             }
         }
-    }
+    }//end viewDidAppear function
     
     
     
@@ -179,4 +189,4 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         delegate.window?.rootViewController = loginViewController
         
     }
-}
+}//end logout function
