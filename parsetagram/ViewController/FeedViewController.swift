@@ -18,6 +18,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     var posts = [PFObject]()
     var numberofPost: Int!
     var refreshControl: UIRefreshControl! //to refresh
+    var showsCommentBar = false
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -35,6 +36,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
+        tableView.keyboardDismissMode = .interactive
     }// end viewDidLoad function, loading function
     
     override var inputAccessoryView: UIView?{
@@ -42,7 +44,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override var canBecomeFirstResponder: Bool{
-        return true
+        return showsCommentBar
     }
     
    /* override func viewDidAppear(_ animated: Bool){
@@ -184,9 +186,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let main = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
         
-        let delegate = UIApplication.shared.delegate as! AppDelegate
+       // let delegate = UIApplication.shared.delegate as! AppDelegate
+        let sceneDelegate = self.view.window?.windowScene?.delegate as! SceneDelegate
         
-        delegate.window?.rootViewController = loginViewController
+        sceneDelegate.window?.rootViewController = loginViewController
         
     }
 }//end logout function
