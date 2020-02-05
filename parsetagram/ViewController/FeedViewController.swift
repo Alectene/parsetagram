@@ -35,11 +35,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.insertSubview(refreshControl, at: 0)
     }// end viewDidLoad function, loading function
     
-    override func viewDidAppear(_ animated: Bool){
+   /* override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
         loadPost()
     }// end viewDidAppear function, makes more post appear
-    
+    */
     @objc func loadPost() {
            let query = PFQuery(className: "Posts")
            query.includeKey("author")
@@ -74,7 +74,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     } // end run function
     
-  /*  override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let query = PFQuery(className:"Posts")
@@ -87,9 +87,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData()
             }
         }
-        
-        
-    }*/
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if indexPath.row + 1 == posts.count {
@@ -99,14 +100,24 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     } // end tableView(willDisplay) function
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        let post = posts[section]
+        let comments = (post["comments"] as? [PFObject]) ?? []
+        return comments.count + 1
     }// end tableView(numberOfRowsInSection) function
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return posts.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = posts[indexPath.section]
+        let comments = (post["comments"] as? [PFObject]) ?? []
+        
+        if indexPath.row == 0{
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         
         
-        let post = posts[indexPath.row]
+     
         let user = post["author"] as! PFUser
         
         cell.usernameLabel.text = user.username
@@ -123,6 +134,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         return cell
+        }else{
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
+            return cell
+            
+            
+        }
     }// end tableView(cellForRowAt) function
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
