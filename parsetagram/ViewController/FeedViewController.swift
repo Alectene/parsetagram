@@ -10,7 +10,7 @@
 import UIKit
 import Parse
 import AlamofireImage
-import Alamofire
+//import Alamofire
 import MessageInputBar
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MessageInputBarDelegate {
