@@ -45,7 +45,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             }else{
                 print("error")
             }
-        }
+        }//end submit button
         
         
         
