@@ -1,7 +1,7 @@
 # parsetagram
 # parsetagram Functionality
 
-This is an Instagram clone with a custom Parse backend that allows a user to post photos and view a global photos feed.
+This is an Instagram clone with a custom Parse backend through Heroku that allows a user to post photos and view a global photos feed.
 
 **Required Functionality(all implemented)**
 
@@ -28,6 +28,10 @@ This is an Instagram clone with a custom Parse backend that allows a user to pos
 - Bolts
 - MessageInputBar
 - Parse
+
+**WireFrame**
+
+- Wireframe is in powerpoint presentation above
 
 **Video Walkthrough**
 
