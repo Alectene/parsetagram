@@ -21,6 +21,14 @@ This is an Instagram clone with a custom Parse backend that allows a user to pos
 - User can add a profile picture.
 - Profile pictures are shown for posts and comments.
 
+**Podfiles Used**
+
+- AlamofireImage 
+- Alamofire
+- Bolts
+- MessageInputBar
+- Parse
+
 **Video Walkthrough**
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
