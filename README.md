@@ -3,6 +3,8 @@
 
 This is an Instagram clone with a custom Parse backend through Heroku that allows a user to post photos and view a global photos feed.
 
+- Tutorial used: https://guides.codepath.org/ios/Configuring-a-Parse-Server#2-setting-a-new-parse-server
+
 **Required Functionality(all implemented)**
 
 - User can sign up to create a new account.
@@ -33,6 +35,5 @@ This is an Instagram clone with a custom Parse backend through Heroku that allow
 
 - Wireframe is in powerpoint presentation above
 
-**Video Walkthrough**
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
