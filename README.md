@@ -18,7 +18,7 @@ This is an Instagram clone with a custom Parse backend through Heroku that allow
 - User can view comments on a post. 
 - User can add a new comment.
 
-**Bonus Features(not implemented)
+**Bonus Features(not implemented)**
 
 - User can add a profile picture.
 - Profile pictures are shown for posts and comments.
