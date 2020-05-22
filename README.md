@@ -46,10 +46,10 @@ This is an Instagram clone with a custom Parse backend through Heroku that allow
 
 **Video Walkthrough**
 - making account
-![](account.gif)
+- ![](account.gif)
 
 - posting pic 
-![](post_pic.gif)
+- ![](post_pic.gif)
 
 - adding comment
-![](comment.gif)
+- ![](comment.gif)
