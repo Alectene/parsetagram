@@ -45,9 +45,11 @@ This is an Instagram clone with a custom Parse backend through Heroku that allow
 - Wireframe is in powerpoint presentation above
 
 **Video Walkthrough**
--making account
+- making account
 ![](account.gif)
--posting pic 
+
+- posting pic 
 ![](post_pic.gif)
--adding comment
+
+- adding comment
 ![](comment.gif)
